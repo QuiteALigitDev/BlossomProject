@@ -1,34 +1,26 @@
 import 'package:flutter/material.dart';
-import 'mobileHome.dart';
-import 'desktopHome.dart';
+import 'mobileJourney.dart';
+import 'desktopJourney.dart';
 import 'package:no_ai_blossom/uifunc.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class JourneyPage extends StatelessWidget {
+  const JourneyPage({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: const Color(0xFFc4b6f6), brightness: Brightness.dark),
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+    return  MyJourneyPage();
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  
-  final String title;
+class MyJourneyPage extends StatefulWidget {
+  const MyJourneyPage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyJourneyPage> createState() => _MyJourneyPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyJourneyPageState extends State<MyJourneyPage> {
 
   @override
   Widget build(BuildContext context) {
