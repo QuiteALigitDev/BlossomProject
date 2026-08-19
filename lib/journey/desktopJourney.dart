@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:no_ai_blossom/journey/journey.dart';
 
-class HomePageDesktop extends StatelessWidget {
+class JourneyPageDesktop extends StatelessWidget {
   final int flexSpace;
   final double margins;
 
-  const HomePageDesktop({super.key, required this.flexSpace, required this.margins});
+  const JourneyPageDesktop({super.key, required this.flexSpace, required this.margins});
 
   @override
   Widget build(BuildContext context) {
@@ -24,76 +25,13 @@ class HomePageDesktop extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 spacing: 32,
                 children: [
-                  Row(
-                    children: [
-                      Column( // Greeting and Date
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children:[
-                          Text("THURSDAY AUGUST 17", style: TextStyle(color: Color(0xFFa398aa), fontSize: 12, fontWeight: FontWeight.w600)),
-                          Text("Hi there 🌸", style: TextStyle(color: Color(0xFFf1ecf3), fontSize: 38, fontWeight: FontWeight.w700))
+                  Column( // Page Header
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children:[
+                      Text("Journey", style: TextStyle(color: Color(0xFFf1ecf3), fontSize: 38, fontWeight: FontWeight.w700)),
+                      Text("Track Your Milestones.", style: TextStyle(color: Color(0xFFa398aa), fontSize: 16, fontWeight: FontWeight.w600)),
 
-                        ]
-                      ),
-
-                      Expanded( // Account and Notification Buttons
-                        child : Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          spacing: 8,
-                          children: [
-                            ElevatedButton.icon(
-                              icon: Icon(Icons.notifications, color : Color(0xFFb8aec0)),
-                              onPressed: () {},
-                              label: Text("Reminders", style: TextStyle(color: Color(0xFFb8aec0)),),
-                              style: ElevatedButton.styleFrom(
-                                minimumSize: const Size(100, 50),
-                                backgroundColor: Color(0xFF211a26),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadiusGeometry.circular(12),
-                                  side: const BorderSide(
-                                    color: Color(0xFFb8aec0),
-                                    width: 0.8,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            ElevatedButton.icon(
-                              icon: Icon(Icons.account_circle_outlined, color : Color(0xFFb8aec0)),
-                              onPressed: () {},
-                              label: Text("Account", style: TextStyle(color: Color(0xFFb8aec0)),),
-                              style: ElevatedButton.styleFrom(
-                                minimumSize: const Size(100, 50),
-                                backgroundColor: Color(0xFF211a26),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadiusGeometry.circular(12),
-                                  side: const BorderSide(
-                                    color: Color(0xFFb8aec0),
-                                    width: 0.8,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-
-                        )
-                      )
-                    ],
-                  ),
-
-                  // Emergency Need Support Button
-                  TextButton.icon(
-                    onPressed: () {},
-                    label: Text("Need Support Right Now?"),
-                  ),
-
-                  // Big box I have no idea why its here
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      color: Color(0xFF2f2737)
-                    ),
-                    width: MediaQuery.of(context).size.width,
-                    height: 210,
+                    ]
                   ),
 
                   // Calender Quick Look (Upcoming, Today)

@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
         },
       ),
       bottomNavigationBar:
-          MediaQuery.of(context).size.width <= 430
+          MediaQuery.of(context).size.width <= 1024
               ? Container(
                   height: 120,
                   padding: EdgeInsets.only(top: 16, bottom: 8),

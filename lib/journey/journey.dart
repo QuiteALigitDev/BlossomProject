@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:no_ai_blossom/home/desktopHome.dart';
 import 'mobileJourney.dart';
 import 'desktopJourney.dart';
 import 'package:no_ai_blossom/uifunc.dart';
@@ -38,7 +39,7 @@ class _MyJourneyPageState extends State<MyJourneyPage> {
             return Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                HomePageDesktop(flexSpace: 10, margins: 0.05,)
+                JourneyPageDesktop(flexSpace: 10, margins: 0.05,)
               ],
             );
           } else{
@@ -52,14 +53,14 @@ class _MyJourneyPageState extends State<MyJourneyPage> {
                     child: CustomNavigationDrawer(),
                   )
                 ),
-                //HomePageDesktop(flexSpace: 13, margins: 0.05,)
+                JourneyPageDesktop(flexSpace: 13, margins: 0.05,)
               ],
             );
           }
         },
       ),
       bottomNavigationBar:
-          MediaQuery.of(context).size.width <= 430
+          MediaQuery.of(context).size.width <= 1024
               ? Container(
                   height: 120,
                   padding: EdgeInsets.only(top: 16, bottom: 8),

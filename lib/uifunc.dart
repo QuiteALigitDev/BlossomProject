@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:no_ai_blossom/home/home.dart';
 import 'journey/journey.dart';
 
 class TextBelowIconButton extends StatelessWidget {
@@ -84,7 +85,7 @@ class CustomNavigationDrawer extends StatelessWidget {
             ),
             hoverColor: Color(0xFF32293a),
             tileColor: Color(0xFF3e354a),
-            onTap: () {Navigator.of(context).push(MaterialPageRoute(builder: (_) => const JourneyPage(),),);},
+            onTap: () {Navigator.of(context).push(MaterialPageRoute(builder: (_) => const HomePage(),),);},
           ),
           ListTile(
             leading : FittedBox(
@@ -99,7 +100,7 @@ class CustomNavigationDrawer extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
             ),
             hoverColor: Color(0xFF32293a),
-            onTap: () {debugPrint("Tapped");},
+            onTap: () {Navigator.of(context).push(MaterialPageRoute(builder: (_) => const JourneyPage(),),);},
           ),
           ListTile(
             leading : FittedBox(
