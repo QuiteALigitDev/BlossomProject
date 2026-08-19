@@ -52,7 +52,7 @@ class _MyJourneyPageState extends State<MyJourneyPage> {
                     child: CustomNavigationDrawer(),
                   )
                 ),
-                HomePageDesktop(flexSpace: 13, margins: 0.05,)
+                //HomePageDesktop(flexSpace: 13, margins: 0.05,)
               ],
             );
           }
