@@ -42,6 +42,60 @@ class TextBelowIconButton extends StatelessWidget {
   }
 }
 
+class JourneyItem extends StatelessWidget {
+  const JourneyItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+  return Container(
+    padding: EdgeInsets.all(16),
+    height: 150,
+    width: double.infinity,
+    alignment: Alignment.topLeft,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(16),
+      color: Color(0xFF231b27),
+      border : BoxBorder.all( color : Color(0xFFb8aec0), width : 0.8)
+    ),
+    child: Column(crossAxisAlignment: CrossAxisAlignment.start, spacing: 8, children: [
+      Text("Title", style : TextStyle(color : Color(0xFFFFFFFF), fontSize: 16.0, fontWeight: FontWeight.w600)),
+      Text("Subtitle", style : TextStyle(color : Color(0xFFa398aa), fontSize: 14.0, fontWeight: FontWeight.w600)),
+      SizedBox(height: 8,),
+      Row( spacing : 8, children: [
+      ElevatedButton.icon(
+        icon: Icon(Icons.delete, color : Color(0xFFb8aec0)),
+        onPressed: () {},
+        label: Text("Remove", style: TextStyle(color: Color(0xFFb8aec0)),),
+        style: ElevatedButton.styleFrom(
+          iconSize: 16,
+          minimumSize: const Size(40, 40),
+          backgroundColor: Color(0xFF211a26),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadiusGeometry.circular(14),
+            side: const BorderSide(
+              color: Color(0xFFb8aec0),
+              width: 0.8,
+            ),
+          ),
+        )
+      ),
+      IconButton(
+        icon: Icon(Icons.check_box_outline_blank_outlined, color : Color(0xFFb8aec0)),
+        onPressed: () {},
+        tooltip:"Complete",
+        style: ElevatedButton.styleFrom(
+          iconSize: 18,
+          minimumSize: const Size(35, 35),
+          maximumSize: const Size(35, 35),
+        )
+      )
+      ])
+    ],),
+  );
+  }
+
+}
+
 class CustomNavigationDrawer extends StatelessWidget {
   const CustomNavigationDrawer({super.key});
 
@@ -106,9 +160,9 @@ class CustomNavigationDrawer extends StatelessWidget {
             leading : FittedBox(
               fit : BoxFit.scaleDown,
               child : Row(mainAxisAlignment: MainAxisAlignment.center, mainAxisSize: MainAxisSize.min, children: [
-                  Icon(Icons.calendar_month_outlined, color: Color(0xFFa398aa),),
+                  Icon(Icons.track_changes, color: Color(0xFFa398aa),),
                   SizedBox(width: 12),
-                  Text("Calender", style : TextStyle(color: Color(0xFFa398aa), fontSize: 14.0, fontWeight: FontWeight.w600)),
+                  Text("Track", style : TextStyle(color: Color(0xFFa398aa), fontSize: 14.0, fontWeight: FontWeight.w600)),
               ],)
             ),
             shape: RoundedRectangleBorder(
@@ -123,7 +177,7 @@ class CustomNavigationDrawer extends StatelessWidget {
               child : Row(mainAxisAlignment: MainAxisAlignment.center, mainAxisSize: MainAxisSize.min, children: [
                   Icon(Icons.info_outline, color: Color(0xFFa398aa),),
                   SizedBox(width: 12),
-                  Text("Info", style : TextStyle(color: Color(0xFFa398aa), fontSize: 14.0, fontWeight: FontWeight.w600)),
+                  Text("Library", style : TextStyle(color: Color(0xFFa398aa), fontSize: 14.0, fontWeight: FontWeight.w600)),
               ],)
             ),
             shape: RoundedRectangleBorder(

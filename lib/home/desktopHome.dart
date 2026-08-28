@@ -57,22 +57,6 @@ class HomePageDesktop extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            ElevatedButton.icon(
-                              icon: Icon(Icons.account_circle_outlined, color : Color(0xFFb8aec0)),
-                              onPressed: () {},
-                              label: Text("Account", style: TextStyle(color: Color(0xFFb8aec0)),),
-                              style: ElevatedButton.styleFrom(
-                                minimumSize: const Size(100, 50),
-                                backgroundColor: Color(0xFF211a26),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadiusGeometry.circular(12),
-                                  side: const BorderSide(
-                                    color: Color(0xFFb8aec0),
-                                    width: 0.8,
-                                  ),
-                                ),
-                              ),
-                            ),
                           ],
 
                         )
