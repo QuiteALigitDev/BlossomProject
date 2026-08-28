@@ -4,24 +4,24 @@ import 'mobileTrack.dart';
 import 'desktopTrack.dart';
 import 'package:no_ai_blossom/uifunc.dart';
 
-class JourneyPage extends StatelessWidget {
-  const JourneyPage({super.key});
+class TrackPage extends StatelessWidget {
+  const TrackPage({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  MyJourneyPage();
+    return  MyTrackPage();
   }
 }
 
-class MyJourneyPage extends StatefulWidget {
-  const MyJourneyPage({super.key});
+class MyTrackPage extends StatefulWidget {
+  const MyTrackPage({super.key});
 
   @override
-  State<MyJourneyPage> createState() => _MyJourneyPageState();
+  State<MyTrackPage> createState() => _MyTrackPageState();
 }
 
-class _MyJourneyPageState extends State<MyJourneyPage> {
+class _MyTrackPageState extends State<MyTrackPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -32,14 +32,14 @@ class _MyJourneyPageState extends State<MyJourneyPage> {
             return Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                HomePageMobile(flexSpace: 10, margins: 0,)
+                TrackPageMobile(flexSpace: 10, margins: 0,)
               ],
             );
           } else if (constraints.maxWidth <= 1024){
             return Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                JourneyPageDesktop(flexSpace: 10, margins: 0.05,)
+                TrackPageDesktop(flexSpace: 10, margins: 0.05,)
               ],
             );
           } else{
@@ -53,7 +53,7 @@ class _MyJourneyPageState extends State<MyJourneyPage> {
                     child: CustomNavigationDrawer(),
                   )
                 ),
-                JourneyPageDesktop(flexSpace: 13, margins: 0.05,)
+                TrackPageDesktop(flexSpace: 13, margins: 0.05,)
               ],
             );
           }

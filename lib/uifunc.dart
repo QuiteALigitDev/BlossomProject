@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:no_ai_blossom/Track/track.dart';
 import 'package:no_ai_blossom/home/home.dart';
 import 'journey/journey.dart';
 
@@ -40,6 +41,60 @@ class TextBelowIconButton extends StatelessWidget {
         ),
       ));
   }
+}
+
+class MedSupply extends StatelessWidget {
+  const MedSupply({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+  return Container(
+    padding: EdgeInsets.all(16),
+    height: 140,
+    width: double.infinity,
+    alignment: Alignment.topLeft,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(16),
+      color: Color(0xFF231b27),
+      border : BoxBorder.all( color : Color(0xFFb8aec0), width : 0.8)
+    ),
+    child: Column(crossAxisAlignment: CrossAxisAlignment.start, spacing: 6, children: [
+      Text("Estridol", style : TextStyle(color : Color(0xFFFFFFFF), fontSize: 16.0, fontWeight: FontWeight.w600)),
+      Text("Supply: 20 @ 5mg", style : TextStyle(color : Color(0xFFa398aa), fontSize: 14.0, fontWeight: FontWeight.w600)),
+      SizedBox(height: 8,),
+      Row( spacing : 8, children: [
+      ElevatedButton.icon(
+        icon: Icon(Icons.medication, color : Color(0xFFb8aec0)),
+        onPressed: () {},
+        label: Text("Log Dose", style: TextStyle(color: Color(0xFFb8aec0)),),
+        style: ElevatedButton.styleFrom(
+          iconSize: 16,
+          minimumSize: const Size(40, 40),
+          backgroundColor: Color(0xFF211a26),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadiusGeometry.circular(14),
+            side: const BorderSide(
+              color: Color(0xFFb8aec0),
+              width: 0.8,
+            ),
+          ),
+        )
+      ),
+      IconButton(
+        icon: Icon(Icons.delete, color : Color(0xFFb8aec0)),
+        onPressed: () {},
+        tooltip:"Complete",
+        style: ElevatedButton.styleFrom(
+          iconSize: 18,
+          minimumSize: const Size(35, 35),
+          maximumSize: const Size(35, 35),
+        )
+      )
+      ])
+    ],),
+  );
+  }
+
 }
 
 class JourneyItem extends StatelessWidget {
@@ -169,15 +224,15 @@ class CustomNavigationDrawer extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
             ),
             hoverColor: Color(0xFF32293a),
-            onTap: () {},
+            onTap: () {Navigator.of(context).push(MaterialPageRoute(builder: (_) => const TrackPage(),),);},
           ),
           ListTile(
             leading : FittedBox(
               fit : BoxFit.scaleDown,
               child : Row(mainAxisAlignment: MainAxisAlignment.center, mainAxisSize: MainAxisSize.min, children: [
-                  Icon(Icons.info_outline, color: Color(0xFFa398aa),),
+                  Icon(Icons.calendar_month_outlined, color: Color(0xFFa398aa),),
                   SizedBox(width: 12),
-                  Text("Library", style : TextStyle(color: Color(0xFFa398aa), fontSize: 14.0, fontWeight: FontWeight.w600)),
+                  Text("Calendar", style : TextStyle(color: Color(0xFFa398aa), fontSize: 14.0, fontWeight: FontWeight.w600)),
               ],)
             ),
             shape: RoundedRectangleBorder(
@@ -186,21 +241,21 @@ class CustomNavigationDrawer extends StatelessWidget {
             hoverColor: Color(0xFF32293a),
             onTap: () {},
           ),
-          ListTile(
-            leading : FittedBox(
-              fit : BoxFit.scaleDown,
-              child : Row(mainAxisAlignment: MainAxisAlignment.center, mainAxisSize: MainAxisSize.min, children: [
-                  Icon(Icons.settings, color: Color(0xFFa398aa),),
-                  SizedBox(width: 12),
-                  Text("Settings", style : TextStyle(color: Color(0xFFa398aa), fontSize: 14.0, fontWeight: FontWeight.w600)),
-              ],)
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-            hoverColor: Color(0xFF32293a),
-            onTap: () {},
-          ),
+          // ListTile(
+          //   leading : FittedBox(
+          //     fit : BoxFit.scaleDown,
+          //     child : Row(mainAxisAlignment: MainAxisAlignment.center, mainAxisSize: MainAxisSize.min, children: [
+          //         Icon(Icons.settings, color: Color(0xFFa398aa),),
+          //         SizedBox(width: 12),
+          //         Text("Settings", style : TextStyle(color: Color(0xFFa398aa), fontSize: 14.0, fontWeight: FontWeight.w600)),
+          //     ],)
+          //   ),
+          //   shape: RoundedRectangleBorder(
+          //     borderRadius: BorderRadius.circular(12),
+          //   ),
+          //   hoverColor: Color(0xFF32293a),
+          //   onTap: () {},
+          // ),
         ],
       )
     );}

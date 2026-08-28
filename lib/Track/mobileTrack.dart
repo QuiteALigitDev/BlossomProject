@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class HomePageMobile extends StatelessWidget {
+class TrackPageMobile extends StatelessWidget {
   final int flexSpace;
   final double margins;
 
-  const HomePageMobile({super.key, required this.flexSpace, required this.margins});
+  const TrackPageMobile({super.key, required this.flexSpace, required this.margins});
 
   @override
   Widget build(BuildContext context) {
