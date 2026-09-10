@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:no_ai_blossom/journey/journey.dart';
 import 'package:no_ai_blossom/uifunc.dart';
 
 class JourneyPageDesktop extends StatelessWidget {

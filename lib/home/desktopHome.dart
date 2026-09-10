@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:no_ai_blossom/uifunc.dart';
 
 class HomePageDesktop extends StatelessWidget {
   final int flexSpace;
@@ -41,22 +42,7 @@ class HomePageDesktop extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.end,
                           spacing: 8,
                           children: [
-                            ElevatedButton.icon(
-                              icon: Icon(Icons.notifications, color : Color(0xFFb8aec0)),
-                              onPressed: () {},
-                              label: Text("Reminders", style: TextStyle(color: Color(0xFFb8aec0)),),
-                              style: ElevatedButton.styleFrom(
-                                minimumSize: const Size(100, 50),
-                                backgroundColor: Color(0xFF211a26),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadiusGeometry.circular(12),
-                                  side: const BorderSide(
-                                    color: Color(0xFFb8aec0),
-                                    width: 0.8,
-                                  ),
-                                ),
-                              ),
-                            ),
+                            IconLabelButton(icon: Icons.notifications, text : "Reminders")
                           ],
 
                         )

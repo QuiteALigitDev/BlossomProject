@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:no_ai_blossom/home/desktopHome.dart';
 import 'mobileJourney.dart';
 import 'desktopJourney.dart';
 import 'package:no_ai_blossom/uifunc.dart';

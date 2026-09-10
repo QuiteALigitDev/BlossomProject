@@ -43,6 +43,196 @@ class TextBelowIconButton extends StatelessWidget {
   }
 }
 
+class chipSelect extends StatefulWidget {
+  final List<Widget> _buttons;
+
+  const chipSelect({super.key, required this._buttons});
+
+  @override
+  State<chipSelect> createState() => chipSelectState();
+}
+
+class chipSelectState extends State<chipSelect> {
+  late List<bool> _selections;
+  
+  @override
+  void initState() {
+    super.initState();
+
+    _selections = List<bool>.filled(
+      widget._buttons.length,
+      false,
+    );
+  }
+
+  void SyncChips(int i){
+    setState((){_selections[i] = !_selections[i];});
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ToggleButtons(
+        constraints: const BoxConstraints(
+          minWidth: 0.0,
+          minHeight: 50,
+        ),
+        renderBorder: true,
+        borderRadius: BorderRadius.circular(8),
+        children: widget._buttons,
+        isSelected: _selections,
+        onPressed: (int index) {SyncChips(index);}
+      );
+  }
+}
+
+class singlechipSelect extends StatefulWidget {
+  final List<Widget> _buttons;
+
+  const singlechipSelect({super.key, required this._buttons});
+
+  @override
+  State<singlechipSelect> createState() => singlechipSelectState();
+}
+
+class singlechipSelectState extends State<singlechipSelect> {
+  late List<bool> _selections;
+  
+  @override
+  void initState() {
+    super.initState();
+
+    _selections = List<bool>.filled(
+      widget._buttons.length,
+      false,
+    );
+  }
+
+  void SyncChips(int i){
+    setState((){
+      for (int index = 0; index < _selections.length; index++) {
+        _selections[index] = (index == i);
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ToggleButtons(
+        constraints: const BoxConstraints(
+          minWidth: 0.0,
+          minHeight: 50,
+        ),
+        renderBorder: true,
+        borderRadius: BorderRadius.circular(8),
+        children: widget._buttons,
+        isSelected: _selections,
+        onPressed: (int index) {SyncChips(index);}
+      );
+  }
+}
+
+// UI Elements
+class IconLabelButton extends StatelessWidget {
+  
+  final IconData icon;
+  final String text;
+
+  const IconLabelButton({super.key, required this.icon, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton.icon(
+      icon: Icon(icon, color : Color(0xFFb8aec0)),
+      onPressed: () {},
+      label: Text(text, style: TextStyle(color: Color(0xFFb8aec0)),),
+      style: ElevatedButton.styleFrom(
+        minimumSize: const Size(100, 50),
+        backgroundColor: Color(0xFF211a26),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadiusGeometry.circular(12),
+          side: const BorderSide(
+            color: Color(0xFFb8aec0),
+            width: 0.8,
+          ),
+        ),
+      ),
+    );
+  }
+}
+class LabelButton extends StatelessWidget {
+  
+  final String text;
+
+  const LabelButton({super.key, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton.icon(
+      onPressed: () {},
+      label: Text(text, style: TextStyle(color: Color(0xFFb8aec0)),),
+      style: ElevatedButton.styleFrom(
+        minimumSize: const Size(100, 50),
+        backgroundColor: Color(0xFF211a26),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadiusGeometry.circular(12),
+          side: const BorderSide(
+            color: Color(0xFFb8aec0),
+            width: 0.8,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class FitLabelButton extends StatelessWidget {
+  
+  final String text;
+
+  const FitLabelButton({super.key, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton.icon(
+      onPressed: () {},
+      label: Text(text, style: TextStyle(color: Color(0xFFb8aec0)),),
+      style: ElevatedButton.styleFrom(
+        minimumSize: const Size(0, 50),
+        backgroundColor: Color(0xFF211a26),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadiusGeometry.circular(12),
+          side: const BorderSide(
+            color: Color(0xFFb8aec0),
+            width: 0.8,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class TextInput extends StatelessWidget {
+  final String labelText;
+  final String hintText;
+  final TextInputType keyboardType;
+
+  const TextInput({super.key, required this.labelText, required this.hintText, required this.keyboardType});
+
+  @override 
+  Widget build(BuildContext context){
+      return TextField(
+      decoration: InputDecoration(
+        labelText: labelText,      // Floating label text
+        hintText: hintText,  // Placeholder text
+        border: OutlineInputBorder(     // Creates the box outline
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+      ),
+      keyboardType: keyboardType, // Optimizes keyboard layout
+    );
+  }
+}
+
 class MedSupply extends StatelessWidget {
   const MedSupply({super.key});
 
@@ -50,7 +240,7 @@ class MedSupply extends StatelessWidget {
   Widget build(BuildContext context) {
   return Container(
     padding: EdgeInsets.all(16),
-    height: 140,
+    height: 145,
     width: double.infinity,
     alignment: Alignment.topLeft,
     decoration: BoxDecoration(
@@ -63,23 +253,7 @@ class MedSupply extends StatelessWidget {
       Text("Supply: 20 @ 5mg", style : TextStyle(color : Color(0xFFa398aa), fontSize: 14.0, fontWeight: FontWeight.w600)),
       SizedBox(height: 8,),
       Row( spacing : 8, children: [
-      ElevatedButton.icon(
-        icon: Icon(Icons.medication, color : Color(0xFFb8aec0)),
-        onPressed: () {},
-        label: Text("Log Dose", style: TextStyle(color: Color(0xFFb8aec0)),),
-        style: ElevatedButton.styleFrom(
-          iconSize: 16,
-          minimumSize: const Size(40, 40),
-          backgroundColor: Color(0xFF211a26),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadiusGeometry.circular(14),
-            side: const BorderSide(
-              color: Color(0xFFb8aec0),
-              width: 0.8,
-            ),
-          ),
-        )
-      ),
+      IconLabelButton(icon: Icons.medication, text: "Log Dose"),
       IconButton(
         icon: Icon(Icons.delete, color : Color(0xFFb8aec0)),
         onPressed: () {},
@@ -104,7 +278,7 @@ class JourneyItem extends StatelessWidget {
   Widget build(BuildContext context) {
   return Container(
     padding: EdgeInsets.all(16),
-    height: 150,
+    height: 160,
     width: double.infinity,
     alignment: Alignment.topLeft,
     decoration: BoxDecoration(
@@ -117,23 +291,7 @@ class JourneyItem extends StatelessWidget {
       Text("Subtitle", style : TextStyle(color : Color(0xFFa398aa), fontSize: 14.0, fontWeight: FontWeight.w600)),
       SizedBox(height: 8,),
       Row( spacing : 8, children: [
-      ElevatedButton.icon(
-        icon: Icon(Icons.delete, color : Color(0xFFb8aec0)),
-        onPressed: () {},
-        label: Text("Remove", style: TextStyle(color: Color(0xFFb8aec0)),),
-        style: ElevatedButton.styleFrom(
-          iconSize: 16,
-          minimumSize: const Size(40, 40),
-          backgroundColor: Color(0xFF211a26),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadiusGeometry.circular(14),
-            side: const BorderSide(
-              color: Color(0xFFb8aec0),
-              width: 0.8,
-            ),
-          ),
-        )
-      ),
+      IconLabelButton(icon: Icons.delete, text: "Remove",),
       IconButton(
         icon: Icon(Icons.check_box_outline_blank_outlined, color : Color(0xFFb8aec0)),
         onPressed: () {},
